@@ -15,16 +15,18 @@
         <result  column="ext1" property="ext1"/>
         <result  column="ext2" property="ext2"/>
         <result  column="ext3" property="ext3"/>
+
+        <result column="type_name" property="typeName"/>
         <!--property是指多的那一边定义的对象-->
-        <association property="category" javaType="com.sq.bookstore.entity.Category">
-            <id  column="category_id" property="categoryId"/>
-            <result column="type_name" property="typeName"/>
-            <result column="remark" property="remark"/>
-            <!--为什么查出来的扩展字段的值不对应-->
-            <result  column="ext1" property="ext1"/>
-            <result  column="ext2" property="ext2"/>
-            <result  column="ext3" property="ext3"/>
-        </association>
+        <!--<association property="category" javaType="com.sq.bookstore.entity.Category">-->
+            <!--<id  column="category_id" property="categoryId"/>-->
+            <!--<result column="type_name" property="typeName"/>-->
+            <!--<result column="remark" property="remark"/>-->
+            <!--&lt;!&ndash;为什么查出来的扩展字段的值不对应&ndash;&gt;-->
+            <!--<result  column="ext1" property="ext1"/>-->
+            <!--<result  column="ext2" property="ext2"/>-->
+            <!--<result  column="ext3" property="ext3"/>-->
+        <!--</association>-->
     </resultMap>
 
     <resultMap type="com.sq.bookstore.entity.Article" id="BaseMap">
@@ -51,7 +53,7 @@
 --         SELECT a.*,b.type_name,b.remark FROM article a,category b where a.category_id=b.category_id
         SELECT
         <include refid="Base_Column_List_A"/>,
-        <include refid="Base_Column_List_C"/>
+        c.type_name
         FROM article a,category c
         where a.category_id=c.category_id
     </select>

@@ -1,5 +1,6 @@
 package com.sq.bookstore.service;
 
+import com.sq.bookstore.dto.ArticleDTO;
 import com.sq.bookstore.entity.*;
 import com.sq.bookstore.mapper.ArticleMapper;
 import com.sq.bookstore.mapper.CategoryMapper;
@@ -74,7 +75,6 @@ public class ArticleService {
     }
 
     public boolean insertArticle(Article article){
-        article.setArticleId(UuidUtil.getUUID32());
         return articleMapper.insertArticle(article);
     }
 

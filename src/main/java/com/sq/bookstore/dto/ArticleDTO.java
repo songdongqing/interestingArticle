@@ -1,5 +1,8 @@
-package com.sq.bookstore.entity;
+package com.sq.bookstore.dto;
 
+import com.sq.bookstore.entity.Article;
+import com.sq.bookstore.entity.Paragraph;
+import com.sq.bookstore.entity.Photo;
 import lombok.Data;
 
 import java.util.List;
